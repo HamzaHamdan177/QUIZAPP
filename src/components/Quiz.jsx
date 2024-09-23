@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import QUESTIONS from '../questions';
-import quizIsCompleteLogo from '../assets/quiz-complete.png';
 import Questions from './Questions';
+import Summary from './Summary';
 
 export default function Quiz() {
   const [userAnswers, setUsersAnswers] = useState([]);
@@ -16,12 +16,7 @@ export default function Quiz() {
   const handleSkipAnswer = useCallback(() => handleSelectAnswer(null));
 
   if (quizIsComplete) {
-    return (
-      <div id='summary'>
-        <img src={quizIsCompleteLogo} />
-        <h2>QUIZ COMPLETED!</h2>
-      </div>
-    );
+    return <Summary />;
   }
 
   return (
